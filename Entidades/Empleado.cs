@@ -21,8 +21,8 @@ namespace Entidades
         /// <param name="cuil"></param>
         public Empleado(string usuario, string password,string nombre,string apellido,string cuil): base(nombre,apellido,cuil)
         {
-            this.usuario = usuario;
-            this.password = password;
+            this.Usuario = usuario;
+            this.Password = password;
         }
 
         public string Usuario
@@ -33,7 +33,15 @@ namespace Entidades
             }
             set
             {
-                this.usuario = value;
+                if(!string.IsNullOrWhiteSpace(value))
+                {
+                    this.usuario = value;
+                }
+                else
+                {
+                    UsuariException usExeption = new UsuariException("El usuario ingresado es incorrecto");
+                    throw usExeption;
+                }
             }
         }
         public string Password

@@ -112,7 +112,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool AltaEmpleado(string nombre, string apellido, string cuil,string usuario, string password)
         {
-            if(Validaciones.ValidarCampos(nombre,apellido,cuil,usuario,password) && !Validaciones.EstaPersona(cuil))
+            if(Validaciones.ValidarCampos(nombre,apellido,cuil,password) && !Validaciones.EstaPersona(cuil))
             {
                 empleado = new Empleado(usuario, password, nombre, apellido, cuil);
                 listaEmpleados.Add(empleado);

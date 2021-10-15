@@ -16,9 +16,9 @@ namespace Entidades
         /// <param name="cuil"></param>
         protected Persona(string nombre, string apellido, string cuil)
         {
-            this.nombre = nombre;
-            this.apellido = apellido;
-            this.cuil = cuil;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Cuil = cuil;
         }
 
         public string Nombre

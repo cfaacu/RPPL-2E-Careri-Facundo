@@ -66,21 +66,16 @@ namespace PetShop
                     this.lblError.Visible = true;
                     this.lblError.Text = "Error cuil utilizado";
                 }
-                else if(Validaciones.EstaUsuario(this.txtUsuario.Text))
-                {
-                    this.lblError.Visible = true;
-                    this.lblError.Text = "Error usuario utlizado";
-                }
                 else
                 {
-                    if (DatosSistema.AltaEmpleado(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text))
+                    try
                     {
-                        this.Close();
+                        DatosSistema.AltaEmpleado(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text);
                     }
-                    else
+                    catch(UsuariException usuarioException)
                     {
                         this.lblError.Visible = true;
-                        lblError.Text = "Error datos incorrectos";
+                        this.lblError.Text = usuarioException.Message;
                     }
                 }
             }

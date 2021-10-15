@@ -82,6 +82,30 @@ namespace Entidades
         /// <param name="nombre"></param>
         /// <param name="apellido"></param>
         /// <param name="cuil"></param>
+        /// <returns>Devuelve true si son correctos o false si son incorrectos</returns>
+        public static bool ValidarCampos(string nombre, string apellido, string cuil, string password)
+        {
+            if (!string.IsNullOrEmpty(nombre) && Validaciones.IsStringOnlyLetters(nombre))
+            {
+                if (!string.IsNullOrEmpty(apellido) && Validaciones.IsStringOnlyLetters(apellido))
+                {
+                    if (!string.IsNullOrEmpty(password))
+                    {
+                        if (!string.IsNullOrEmpty(cuil) && Validaciones.IsCuil(cuil))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        /// <summary>
+        /// Valida que los campos ingresados sean correctos
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="cuil"></param>
         /// <param name="usuario"></param>
         /// <param name="password"></param>
         /// <returns>True si es correcto o false si es incorrecto</returns>
