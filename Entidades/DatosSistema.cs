@@ -131,7 +131,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool AltaAdministrador(string nombre, string apellido, string cuil, string usuario, string password)
         {
-            if (Validaciones.ValidarCampos(nombre, apellido, cuil, usuario, password) && !Validaciones.EstaPersona(cuil))
+            if (Validaciones.ValidarCampos(nombre, apellido, cuil, password) && !Validaciones.EstaPersona(cuil))
             {
                 administrador = new Administrador(usuario, password, nombre, apellido, cuil);
                 listaEmpleados.Add(administrador);
@@ -195,7 +195,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool ModificarEmpleado(string nombre, string apellido, string cuil, string usuario, string password)
         {
-            if (Validaciones.ValidarCampos(nombre, apellido, cuil,usuario,password))
+            if (Validaciones.ValidarCampos(nombre, apellido, cuil,password))
             {
                 for (int i = 0; i < DatosSistema.listaEmpleados.Count(); i++)
                 {
@@ -221,7 +221,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool ModificarAdministrador(string nombre,string apellido,string cuil, string usuario, string password)
         {
-            if (Validaciones.ValidarCampos(nombre, apellido, cuil, usuario, password))
+            if (Validaciones.ValidarCampos(nombre, apellido, cuil, password))
             {
                 for (int i = 0; i < DatosSistema.listaEmpleados.Count(); i++)
                 {

@@ -93,14 +93,14 @@ namespace PetShop
                 }
                 else
                 {
-                    if (DatosSistema.AltaAdministrador(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text))
+                    try
                     {
-                        this.Close();
+                        DatosSistema.AltaAdministrador(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text);
                     }
-                    else
+                    catch (UsuariException usuarioException)
                     {
                         this.lblError.Visible = true;
-                        lblError.Text = "Error datos incorrectos";
+                        this.lblError.Text = usuarioException.Message;
                     }
                 }
             }

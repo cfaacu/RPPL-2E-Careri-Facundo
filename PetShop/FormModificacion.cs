@@ -157,27 +157,30 @@ namespace PetShop
             }
             if (this.rango == Enumerados.ERango.empleado && this.accion == "modificar")
             {
-                if (DatosSistema.ModificarEmpleado(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text))
+                try
                 {
+                    DatosSistema.ModificarEmpleado(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text);
                     MessageBox.Show("Modificado con exito");
                     this.Close();
                 }
-                else
+                catch(UsuariException usuarioException)
                 {
                     this.lblError.Visible = true;
-                    this.lblError.Text = "Error datos incorrectos";
+                    this.lblError.Text = usuarioException.Message;
                 }
             }
             if (this.rango == Enumerados.ERango.administrador && this.accion == "modificar")
             {
-                if (DatosSistema.ModificarAdministrador(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text))
+                try
                 {
+                    DatosSistema.ModificarAdministrador(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text);
+                    MessageBox.Show("Modificado con exito");
                     this.Close();
                 }
-                else
+                catch (UsuariException usuarioException)
                 {
                     this.lblError.Visible = true;
-                    this.lblError.Text = "Error datos incorrectos";
+                    this.lblError.Text = usuarioException.Message;
                 }
             }
             if (this.rango == Enumerados.ERango.cliente && this.accion == "baja")
