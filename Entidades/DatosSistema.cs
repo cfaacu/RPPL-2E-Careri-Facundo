@@ -93,7 +93,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool AltaCliente(string nombre, string apellido, string cuil, double saldo)
         {
-            if (Validaciones.ValidarCampos(nombre, apellido, cuil, saldo) && !Validaciones.EstaPersona(cuil))
+            if (Validaciones.ValidarCampos(nombre, apellido, saldo) && !Validaciones.EstaPersona(cuil))
             {
                 cliente = new Cliente(nombre, apellido, cuil, saldo);
                 listaClientes.Add(cliente);
@@ -112,7 +112,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool AltaEmpleado(string nombre, string apellido, string cuil,string usuario, string password)
         {
-            if(Validaciones.ValidarCampos(nombre,apellido,cuil,password) && !Validaciones.EstaPersona(cuil))
+            if(Validaciones.ValidarCampos(nombre,apellido,password) && !Validaciones.EstaPersona(cuil))
             {
                 empleado = new Empleado(usuario, password, nombre, apellido, cuil);
                 listaEmpleados.Add(empleado);
@@ -131,7 +131,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool AltaAdministrador(string nombre, string apellido, string cuil, string usuario, string password)
         {
-            if (Validaciones.ValidarCampos(nombre, apellido, cuil, password) && !Validaciones.EstaPersona(cuil))
+            if (Validaciones.ValidarCampos(nombre, apellido, password) && !Validaciones.EstaPersona(cuil))
             {
                 administrador = new Administrador(usuario, password, nombre, apellido, cuil);
                 listaEmpleados.Add(administrador);
@@ -169,7 +169,7 @@ namespace Entidades
         /// <returns>True si se pudo o false si no se pudo</returns>
         public static bool ModificarCliente(string nombre,string apellido,string cuil,double saldo)
         {
-            if (Validaciones.ValidarCampos(nombre, apellido, cuil, saldo))
+            if (Validaciones.ValidarCampos(nombre, apellido, saldo))
             {
                 for (int i = 0; i < DatosSistema.listaClientes.Count(); i++)
                 {

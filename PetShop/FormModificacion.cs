@@ -54,7 +54,7 @@ namespace PetShop
         private void btnContinuar_Click(object sender, EventArgs e)
         {
             this.lblError.Text = string.Empty;
-            if(this.rango == Enumerados.ERango.cliente && this.accion == "recarga")
+            if (this.rango == Enumerados.ERango.cliente && this.accion == "recarga")
             {
                 if (Validaciones.IsCuil(this.txtCuil.Text))
                 {
@@ -139,14 +139,14 @@ namespace PetShop
             {
                 if (double.TryParse(this.txtSaldo.Text, out double saldo))
                 {
-                    if (DatosSistema.ModificarCliente(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, saldo))
+                    try
                     {
-                        this.Close();
+                        DatosSistema.ModificarCliente(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, saldo);
                     }
-                    else
+                    catch (CuilException cuilException)
                     {
                         this.lblError.Visible = true;
-                        this.lblError.Text = "Error datos incorrectos";
+                        this.lblError.Text = cuilException.Message;
                     }
                 }
                 else
@@ -163,10 +163,15 @@ namespace PetShop
                     MessageBox.Show("Modificado con exito");
                     this.Close();
                 }
-                catch(UsuariException usuarioException)
+                catch (UsuariException usuarioException)
                 {
                     this.lblError.Visible = true;
                     this.lblError.Text = usuarioException.Message;
+                }
+                catch(CuilException cuilException)
+                {
+                    this.lblError.Visible = true;
+                    this.lblError.Text = cuilException.Message;
                 }
             }
             if (this.rango == Enumerados.ERango.administrador && this.accion == "modificar")
@@ -181,6 +186,11 @@ namespace PetShop
                 {
                     this.lblError.Visible = true;
                     this.lblError.Text = usuarioException.Message;
+                }
+                catch (CuilException cuilException)
+                {
+                    this.lblError.Visible = true;
+                    this.lblError.Text = cuilException.Message;
                 }
             }
             if (this.rango == Enumerados.ERango.cliente && this.accion == "baja")
@@ -220,9 +230,9 @@ namespace PetShop
                     this.lblError.Text = "Error datos incorrectos";
                 }
             }
-            if(this.rango == Enumerados.ERango.cliente && this.accion == "recarga")
+            if (this.rango == Enumerados.ERango.cliente && this.accion == "recarga")
             {
-                if(double.TryParse(this.txtSaldo.Text, out double dinero))
+                if (double.TryParse(this.txtSaldo.Text, out double dinero))
                 {
                     clienteAux = clienteAux + dinero;
                     this.Close();
@@ -237,41 +247,36 @@ namespace PetShop
 
         private void LlenarCamposCliente()
         {
-            if (Validaciones.IsCuil(this.txtCuil.Text))
+            int flagError =0;
+            for (int i = 0; i < DatosSistema.listaClientes.Count(); i++)
             {
-                for (int i = 0; i < DatosSistema.listaClientes.Count(); i++)
+                if (DatosSistema.listaClientes[i].Cuil.Equals(this.txtCuil.Text))
                 {
-                    if (DatosSistema.listaClientes[i].Cuil.Equals(this.txtCuil.Text))
-                    {
-                        this.btnContinuar.Visible = false;
-                        this.lblApellido.Visible = true;
-                        this.lblCuil.Visible = true;
-                        this.lblNombre.Visible = true;
-                        this.lblSaldo.Visible = true;
-                        this.txtApellido.Visible = true;
-                        this.txtCuil.Visible = true;
-                        this.txtNombre.Visible = true;
-                        this.txtSaldo.Visible = true;
-                        this.btnAceptar.Visible = true;
-                        this.txtCuil.ReadOnly = true;
-                        this.txtApellido.Text = DatosSistema.listaClientes[i].Apellido;
-                        this.txtCuil.Text = DatosSistema.listaClientes[i].Cuil;
-                        this.txtNombre.Text = DatosSistema.listaClientes[i].Nombre;
-                        this.txtSaldo.Text = DatosSistema.listaClientes[i].Saldo.ToString();
-                        break;
-                    }
-                    else
-                    {
-                        this.lblError.Visible = true;
-                        this.lblError.Text = "Error cuil inexistente";
-                    }
+                    flagError = 1;
+                    this.btnContinuar.Visible = false;
+                    this.lblApellido.Visible = true;
+                    this.lblCuil.Visible = true;
+                    this.lblNombre.Visible = true;
+                    this.lblSaldo.Visible = true;
+                    this.txtApellido.Visible = true;
+                    this.txtCuil.Visible = true;
+                    this.txtNombre.Visible = true;
+                    this.txtSaldo.Visible = true;
+                    this.btnAceptar.Visible = true;
+                    this.txtCuil.ReadOnly = true;
+                    this.txtApellido.Text = DatosSistema.listaClientes[i].Apellido;
+                    this.txtCuil.Text = DatosSistema.listaClientes[i].Cuil;
+                    this.txtNombre.Text = DatosSistema.listaClientes[i].Nombre;
+                    this.txtSaldo.Text = DatosSistema.listaClientes[i].Saldo.ToString();
+                    break;
                 }
             }
-            else
+            if(flagError == 0)
             {
                 this.lblError.Visible = true;
-                this.lblError.Text = "Error datos invalidos";
+                this.lblError.Text = "Cuil ingresado invalido";
             }
         }
     }
 }
+

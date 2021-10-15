@@ -47,14 +47,14 @@ namespace PetShop
                     }
                     else
                     {
-                        if (DatosSistema.AltaCliente(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, saldo))
+                        try
                         {
-                            this.Close();
+                            DatosSistema.AltaCliente(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, saldo);
                         }
-                        else
+                        catch (CuilException cuilException)
                         {
                             this.lblError.Visible = true;
-                            lblError.Text = "Error datos incorrectos";
+                            this.lblError.Text = cuilException.Message;
                         }
                     }
                 }
@@ -76,6 +76,11 @@ namespace PetShop
                     {
                         this.lblError.Visible = true;
                         this.lblError.Text = usuarioException.Message;
+                    }
+                    catch(CuilException cuilException)
+                    {
+                        this.lblError.Visible = true;
+                        this.lblError.Text = cuilException.Message;
                     }
                 }
             }
@@ -101,6 +106,11 @@ namespace PetShop
                     {
                         this.lblError.Visible = true;
                         this.lblError.Text = usuarioException.Message;
+                    }
+                    catch (CuilException cuilException)
+                    {
+                        this.lblError.Visible = true;
+                        this.lblError.Text = cuilException.Message;
                     }
                 }
             }

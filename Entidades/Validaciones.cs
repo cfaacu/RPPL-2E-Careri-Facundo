@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Entidades
+﻿namespace Entidades
 {
     public static class Validaciones
     {
@@ -59,7 +53,7 @@ namespace Entidades
         /// <param name="cuil"></param>
         /// <param name="saldo"></param>
         /// <returns>True si es correcto o false si es incorrecto</returns>
-        public static bool ValidarCampos(string nombre, string apellido, string cuil,double saldo)
+        public static bool ValidarCampos(string nombre, string apellido, string cuil, double saldo)
         {
             if (!string.IsNullOrEmpty(nombre) && Validaciones.IsStringOnlyLetters(nombre))
             {
@@ -71,6 +65,27 @@ namespace Entidades
                         {
                             return true;
                         }
+                    }
+                }
+            }
+            return false;
+        }
+        /// <summary>
+        /// Valida que los campos ingresados sean correctos
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="saldo"></param>
+        /// <returns>true si es correcto o false si los datos son incorrectos</returns>
+        public static bool ValidarCampos(string nombre, string apellido, double saldo)
+        {
+            if (!string.IsNullOrEmpty(nombre) && Validaciones.IsStringOnlyLetters(nombre))
+            {
+                if (!string.IsNullOrEmpty(apellido) && Validaciones.IsStringOnlyLetters(apellido))
+                {
+                    if (saldo > 0)
+                    {
+                        return true;
                     }
                 }
             }
@@ -95,6 +110,28 @@ namespace Entidades
                         {
                             return true;
                         }
+                    }
+                }
+            }
+            return false;
+        }
+        /// <summary>
+        /// Valida que los campos ingresados sean correctos
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="apellido"></param>
+        /// <param name="cuil"></param>
+        /// <param name="password"></param>
+        /// <returns>true si son correctos, false si son incorrectos</returns>
+        public static bool ValidarCampos(string nombre, string apellido, string password)
+        {
+            if (!string.IsNullOrEmpty(nombre) && Validaciones.IsStringOnlyLetters(nombre))
+            {
+                if (!string.IsNullOrEmpty(apellido) && Validaciones.IsStringOnlyLetters(apellido))
+                {
+                    if (!string.IsNullOrEmpty(password))
+                    {
+                       return true;
                     }
                 }
             }
@@ -159,7 +196,7 @@ namespace Entidades
                     {
                         return true;
                     }
-                    
+
                 }
             }
             return false;
@@ -173,7 +210,7 @@ namespace Entidades
         /// <param name="cantidad"></param>
         /// <param name="tipoProducto"></param>
         /// <returns>True si es correcto o false si es incorrecto</returns>
-        public static bool ValidarCamposProducto(string nombre, string descripcion, double precio, double cantidad,string tipoProducto)
+        public static bool ValidarCamposProducto(string nombre, string descripcion, double precio, double cantidad, string tipoProducto)
         {
             if (!string.IsNullOrEmpty(nombre) && Validaciones.IsStringOnlyLetters(nombre))
             {
@@ -205,9 +242,9 @@ namespace Entidades
         /// <returns>True si es correcto o false si es incorrecto</returns>
         public static bool ValidarCamposProducto(string nombre, string descripcion, double precio, double cantidad, string tipoProducto, int id)
         {
-            if(ValidarCamposProducto(nombre, descripcion, precio, cantidad, tipoProducto))
+            if (ValidarCamposProducto(nombre, descripcion, precio, cantidad, tipoProducto))
             {
-                if(id > 0)
+                if (id > 0)
                 {
                     return true;
                 }
@@ -221,7 +258,7 @@ namespace Entidades
         /// <returns>True si es correcto o false si es incorrecto</returns>
         public static bool ValidarCamposProducto(int id)
         {
-            if(id > 0)
+            if (id > 0)
             {
                 return true;
             }
@@ -233,7 +270,7 @@ namespace Entidades
         /// <param name="cuil"></param>
         /// <returns>True si es correcto o false si es incorrecto</returns>
         public static bool EstaPersona(string cuil)
-        { 
+        {
             if (Validaciones.ValidarCampos(cuil))
             {
                 foreach (Cliente item in DatosSistema.listaClientes)
@@ -252,7 +289,7 @@ namespace Entidades
         /// <param name="cuil"></param>
         /// <param name="cliente"></param>
         /// <returns>True si es correcto o false si es incorrecto</returns>
-        public static bool EstaPersona(string cuil,out Cliente cliente)
+        public static bool EstaPersona(string cuil, out Cliente cliente)
         {
             if (Validaciones.ValidarCampos(cuil))
             {
@@ -275,7 +312,7 @@ namespace Entidades
         /// <returns>True si es correcto o false si es incorrecto</returns>
         public static bool EstaUsuario(string usuario)
         {
-            if(!(usuario is null))
+            if (!(usuario is null))
             {
                 foreach (Empleado item in DatosSistema.listaEmpleados)
                 {
@@ -294,11 +331,11 @@ namespace Entidades
         /// <returns>True si es correcto o false si es incorrecto</returns>
         public static bool EstaId(int id)
         {
-            if(id > 0)
+            if (id > 0)
             {
                 foreach (Producto item in DatosSistema.listaProductos)
                 {
-                    if(item.Id == id)
+                    if (item.Id == id)
                     {
                         return true;
                     }

@@ -61,6 +61,11 @@ namespace Entidades
                 {
                     this.cuil = value;
                 }
+                else
+                {
+                    CuilException cuilException = new CuilException("Error, cuil ingresado invalido");
+                    throw cuilException;
+                }
             }
         }
 
