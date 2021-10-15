@@ -80,7 +80,8 @@ namespace Entidades
                     }
                 }
             }
-            return null;
+            UsuarioInvalidoException usuarioInvalido = new UsuarioInvalidoException("Credenciales ingresadas invalidas");
+            throw usuarioInvalido;
         }
 
         /// <summary>

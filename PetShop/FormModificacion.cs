@@ -163,7 +163,7 @@ namespace PetShop
                     MessageBox.Show("Modificado con exito");
                     this.Close();
                 }
-                catch (UsuariException usuarioException)
+                catch (UsuarioInvalidoException usuarioException)
                 {
                     this.lblError.Visible = true;
                     this.lblError.Text = usuarioException.Message;
@@ -182,7 +182,7 @@ namespace PetShop
                     MessageBox.Show("Modificado con exito");
                     this.Close();
                 }
-                catch (UsuariException usuarioException)
+                catch (UsuarioInvalidoException usuarioException)
                 {
                     this.lblError.Visible = true;
                     this.lblError.Text = usuarioException.Message;

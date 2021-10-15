@@ -72,7 +72,7 @@ namespace PetShop
                     {
                         DatosSistema.AltaEmpleado(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text);
                     }
-                    catch(UsuariException usuarioException)
+                    catch(UsuarioInvalidoException usuarioException)
                     {
                         this.lblError.Visible = true;
                         this.lblError.Text = usuarioException.Message;
@@ -102,7 +102,7 @@ namespace PetShop
                     {
                         DatosSistema.AltaAdministrador(this.txtNombre.Text, this.txtApellido.Text, this.txtCuil.Text, this.txtUsuario.Text, this.txtPassword.Text);
                     }
-                    catch (UsuariException usuarioException)
+                    catch (UsuarioInvalidoException usuarioException)
                     {
                         this.lblError.Visible = true;
                         this.lblError.Text = usuarioException.Message;

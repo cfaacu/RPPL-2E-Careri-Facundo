@@ -39,7 +39,7 @@ namespace Entidades
                 }
                 else
                 {
-                    UsuariException usExeption = new UsuariException("El usuario ingresado es incorrecto");
+                    UsuarioInvalidoException usExeption = new UsuarioInvalidoException("El usuario ingresado es incorrecto");
                     throw usExeption;
                 }
             }

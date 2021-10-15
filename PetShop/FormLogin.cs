@@ -32,17 +32,20 @@ namespace PetShop
         }
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            emp1 = DatosSistema.LoguearUsuario(this.txtUsuario.Text, this.txtPass.Text);
+            try
+            {
+                emp1 = DatosSistema.LoguearUsuario(this.txtUsuario.Text, this.txtPass.Text);
+            }
+            catch(UsuarioInvalidoException usuarioException)
+            {
+                this.lblError.Text = usuarioException.Message;
+            }
             if(!(emp1 is null))
             {
                 menuPrincipal = new FormMenuPrincipal(emp1);
                 this.Hide();
                 menuPrincipal.ShowDialog();
                 this.Close();
-            }
-            else
-            {
-                this.lblError.Text = "Error Datos Incorrectos";
             }
         }
 
