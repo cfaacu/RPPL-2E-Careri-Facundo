@@ -15,16 +15,18 @@ namespace Entidades
         string tipoProducto;
         int id;
         static int ultimoId;
+        double peso;
 
-        public Producto(string nombre, double precio, string descripcion, string tipoProducto, int cantidad) : this()
+        public Producto(string nombre, double precio, string descripcion, string tipoProducto, int cantidad,double peso) : this()
         {
-            this.nombre = nombre;
-            this.precio = precio;
-            this.cantidad = cantidad;
-            this.descripcion = descripcion;
-            this.tipoProducto = tipoProducto;
+            this.Nombre = nombre;
+            this.Precio = precio;
+            this.Cantidad = cantidad;
+            this.Descripcion = descripcion;
+            this.TipoProducto = tipoProducto;
+            this.Peso = peso;
         }
-        public Producto(int id, string nombre, double precio, string descripcion, string tipoProducto, int cantidad):this(nombre,precio,descripcion,tipoProducto,cantidad)
+        public Producto(int id, string nombre, double precio, string descripcion, string tipoProducto, int cantidad,double peso):this(nombre,precio,descripcion,tipoProducto,cantidad,peso)
         {
             this.id = id;
         }
@@ -97,6 +99,20 @@ namespace Entidades
             get
             {
                 return this.id;
+            }
+        }
+        public double Peso
+        {
+            get
+            {
+                return this.peso;
+            }
+            set
+            {
+                if(value >= 0)
+                {
+                    this.peso = value;
+                }
             }
         }
 

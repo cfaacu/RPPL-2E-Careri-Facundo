@@ -1,13 +1,9 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PetShop
@@ -15,11 +11,13 @@ namespace PetShop
     public partial class FormVenta : Form
     {
         Venta venta;
+        Envio envio;
         List<Producto> listaProductoAux;
         Stack<Producto> carrito;
         Cliente clienteAux;
         double precioTotal = 0;
         string cuil;
+        double precioEnvio;
         public FormVenta()
         {
             listaProductoAux = new List<Producto>();
@@ -38,7 +36,7 @@ namespace PetShop
 
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            if (Validaciones.EstaPersona(this.txtCuil.Text,out clienteAux))
+            if (Validaciones.EstaPersona(this.txtCuil.Text, out clienteAux))
             {
                 cuil = txtCuil.Text;
                 this.btnContinuar.Visible = false;
@@ -72,22 +70,15 @@ namespace PetShop
                     {
                         if (listaProductoAux[i].Cantidad > 0)
                         {
-                            if(clienteAux.Saldo > 0)
+                            carrito.Push(listaProductoAux[i]);
+                            listaProductoAux[i].Cantidad -= 1;
+                            precioTotal = DatosSistema.PrecioTotal(carrito);
+                            if (precioTotal != double.MinValue)
                             {
-                                carrito.Push(listaProductoAux[i]);
-                                listaProductoAux[i].Cantidad -= 1;
-                                precioTotal = DatosSistema.PrecioTotal(carrito);
-                                if (precioTotal != double.MinValue)
-                                {
-                                    this.lblTotal.Text = $"Total: {precioTotal}";
-                                }
-                                this.lstCarrito.Items.Add(listaProductoAux[i].MostrarDatosVenta());                               
+                                this.lblTotal.Text = $"Total: {precioTotal}";
                             }
-                            else
-                            {
-                                this.lblError.Visible = true;
-                                this.lblError.Text = "Error cliente sin dinero";
-                            }
+                            this.lstCarrito.Items.Add(listaProductoAux[i].MostrarDatosVenta());
+
                         }
                         else
                         {
@@ -107,17 +98,27 @@ namespace PetShop
 
         private void btnFinalizar_Click(object sender, EventArgs e)
         {
-            venta = new Venta(carrito, precioTotal,clienteAux);
+            venta = new Venta(carrito, precioTotal, clienteAux);
+            envio = new Envio();
             DatosSistema.PilaVentas.Push(venta);
-            if(DatosSistema.RestarDineroCliente(cuil,precioTotal))
+            precioEnvio = envio.CalcularPrecio(venta);
+            precioTotal = precioTotal + precioEnvio;
+            this.lblTotal.Text = $"Total: {precioTotal}";
+            try
             {
-                if(MessageBox.Show("Desea generar un ticket?", "Ticket", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                DatosSistema.RestarDineroCliente(cuil, precioTotal);
+                if (MessageBox.Show("Desea generar un ticket?", "Ticket", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     GenerarTicket(venta);
                 }
                 Console.Beep();
                 this.Close();
                 MessageBox.Show("Venta generada con exito");
+            }
+            catch(ClienteSinDineroException)
+            {
+                MessageBox.Show("Cliente sin dinero, transaccion invalida");
+                this.Close();
             }
         }
         private void ActualizarLista()
@@ -165,8 +166,9 @@ namespace PetShop
                 str.AppendLine(item.MostrarDatosVenta());
             }
             str.AppendLine("");
+            str.AppendLine($"Envio: {precioEnvio} ");
 
-            str.AppendLine($"Precio Total: {DatosSistema.PrecioTotal(venta.Carrito).ToString()}");
+            str.AppendLine($"Precio Total: {precioTotal}");
             return str.ToString();
         }
     }

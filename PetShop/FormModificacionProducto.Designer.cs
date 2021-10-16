@@ -48,16 +48,17 @@ namespace PetShop
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblError = new System.Windows.Forms.Label();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.lblPeso = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnContinuar
             // 
             this.btnContinuar.BackColor = System.Drawing.Color.LightGray;
             this.btnContinuar.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnContinuar.Location = new System.Drawing.Point(586, 379);
-            this.btnContinuar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnContinuar.Location = new System.Drawing.Point(513, 284);
             this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(165, 108);
+            this.btnContinuar.Size = new System.Drawing.Size(144, 81);
             this.btnContinuar.TabIndex = 47;
             this.btnContinuar.Text = "Continuar";
             this.btnContinuar.UseVisualStyleBackColor = false;
@@ -69,10 +70,9 @@ namespace PetShop
             this.txtId.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtId.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtId.ForeColor = System.Drawing.Color.White;
-            this.txtId.Location = new System.Drawing.Point(349, 379);
-            this.txtId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtId.Location = new System.Drawing.Point(305, 284);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(114, 33);
+            this.txtId.Size = new System.Drawing.Size(100, 26);
             this.txtId.TabIndex = 46;
             // 
             // lblId
@@ -80,9 +80,9 @@ namespace PetShop
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblId.ForeColor = System.Drawing.Color.White;
-            this.lblId.Location = new System.Drawing.Point(312, 379);
+            this.lblId.Location = new System.Drawing.Point(273, 284);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(31, 34);
+            this.lblId.Size = new System.Drawing.Size(25, 27);
             this.lblId.TabIndex = 45;
             this.lblId.Text = "Id";
             // 
@@ -93,11 +93,10 @@ namespace PetShop
             this.lstInfo.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstInfo.ForeColor = System.Drawing.Color.White;
             this.lstInfo.FormattingEnabled = true;
-            this.lstInfo.ItemHeight = 33;
-            this.lstInfo.Location = new System.Drawing.Point(11, 51);
-            this.lstInfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstInfo.ItemHeight = 27;
+            this.lstInfo.Location = new System.Drawing.Point(10, 38);
             this.lstInfo.Name = "lstInfo";
-            this.lstInfo.Size = new System.Drawing.Size(757, 264);
+            this.lstInfo.Size = new System.Drawing.Size(662, 189);
             this.lstInfo.TabIndex = 44;
             // 
             // btnAceptar
@@ -107,10 +106,9 @@ namespace PetShop
             this.btnAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAceptar.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAceptar.ForeColor = System.Drawing.Color.Black;
-            this.btnAceptar.Location = new System.Drawing.Point(586, 512);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAceptar.Location = new System.Drawing.Point(513, 384);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(165, 108);
+            this.btnAceptar.Size = new System.Drawing.Size(144, 81);
             this.btnAceptar.TabIndex = 58;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = false;
@@ -123,10 +121,9 @@ namespace PetShop
             this.txtCantidad.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCantidad.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtCantidad.ForeColor = System.Drawing.Color.White;
-            this.txtCantidad.Location = new System.Drawing.Point(229, 581);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtCantidad.Location = new System.Drawing.Point(200, 436);
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(114, 33);
+            this.txtCantidad.Size = new System.Drawing.Size(100, 26);
             this.txtCantidad.TabIndex = 57;
             this.txtCantidad.Visible = false;
             // 
@@ -135,9 +132,9 @@ namespace PetShop
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCantidad.ForeColor = System.Drawing.Color.White;
-            this.lblCantidad.Location = new System.Drawing.Point(229, 544);
+            this.lblCantidad.Location = new System.Drawing.Point(200, 408);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(96, 34);
+            this.lblCantidad.Size = new System.Drawing.Size(76, 27);
             this.lblCantidad.TabIndex = 56;
             this.lblCantidad.Text = "Cantidad";
             this.lblCantidad.Visible = false;
@@ -148,10 +145,9 @@ namespace PetShop
             this.txtPrecio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPrecio.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPrecio.ForeColor = System.Drawing.Color.White;
-            this.txtPrecio.Location = new System.Drawing.Point(229, 507);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPrecio.Location = new System.Drawing.Point(200, 380);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(114, 33);
+            this.txtPrecio.Size = new System.Drawing.Size(100, 26);
             this.txtPrecio.TabIndex = 55;
             this.txtPrecio.Visible = false;
             // 
@@ -160,9 +156,9 @@ namespace PetShop
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblPrecio.ForeColor = System.Drawing.Color.White;
-            this.lblPrecio.Location = new System.Drawing.Point(229, 469);
+            this.lblPrecio.Location = new System.Drawing.Point(200, 352);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(74, 34);
+            this.lblPrecio.Size = new System.Drawing.Size(57, 27);
             this.lblPrecio.TabIndex = 54;
             this.lblPrecio.Text = "Precio";
             this.lblPrecio.Visible = false;
@@ -172,9 +168,9 @@ namespace PetShop
             this.lblTipoProducto.AutoSize = true;
             this.lblTipoProducto.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTipoProducto.ForeColor = System.Drawing.Color.White;
-            this.lblTipoProducto.Location = new System.Drawing.Point(387, 507);
+            this.lblTipoProducto.Location = new System.Drawing.Point(337, 402);
             this.lblTipoProducto.Name = "lblTipoProducto";
-            this.lblTipoProducto.Size = new System.Drawing.Size(141, 34);
+            this.lblTipoProducto.Size = new System.Drawing.Size(109, 27);
             this.lblTipoProducto.TabIndex = 52;
             this.lblTipoProducto.Text = "Tipo Producto";
             this.lblTipoProducto.Visible = false;
@@ -185,10 +181,9 @@ namespace PetShop
             this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtDescripcion.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtDescripcion.ForeColor = System.Drawing.Color.White;
-            this.txtDescripcion.Location = new System.Drawing.Point(34, 581);
-            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtDescripcion.Location = new System.Drawing.Point(30, 436);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(114, 33);
+            this.txtDescripcion.Size = new System.Drawing.Size(100, 26);
             this.txtDescripcion.TabIndex = 51;
             this.txtDescripcion.Visible = false;
             // 
@@ -197,9 +192,9 @@ namespace PetShop
             this.lblDescripcion.AutoSize = true;
             this.lblDescripcion.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(34, 544);
+            this.lblDescripcion.Location = new System.Drawing.Point(30, 408);
             this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(125, 34);
+            this.lblDescripcion.Size = new System.Drawing.Size(95, 27);
             this.lblDescripcion.TabIndex = 50;
             this.lblDescripcion.Text = "Descripcion";
             this.lblDescripcion.Visible = false;
@@ -210,10 +205,9 @@ namespace PetShop
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtNombre.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtNombre.ForeColor = System.Drawing.Color.White;
-            this.txtNombre.Location = new System.Drawing.Point(34, 507);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNombre.Location = new System.Drawing.Point(30, 380);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(114, 33);
+            this.txtNombre.Size = new System.Drawing.Size(100, 26);
             this.txtNombre.TabIndex = 49;
             this.txtNombre.Visible = false;
             // 
@@ -222,9 +216,9 @@ namespace PetShop
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(34, 469);
+            this.lblNombre.Location = new System.Drawing.Point(30, 352);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(87, 34);
+            this.lblNombre.Size = new System.Drawing.Size(69, 27);
             this.lblNombre.TabIndex = 48;
             this.lblNombre.Text = "Nombre";
             this.lblNombre.Visible = false;
@@ -236,10 +230,9 @@ namespace PetShop
             this.cmbTipo.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbTipo.ForeColor = System.Drawing.Color.LightGray;
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Location = new System.Drawing.Point(390, 544);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbTipo.Location = new System.Drawing.Point(339, 430);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(138, 41);
+            this.cmbTipo.Size = new System.Drawing.Size(121, 35);
             this.cmbTipo.TabIndex = 59;
             this.cmbTipo.Visible = false;
             // 
@@ -248,17 +241,19 @@ namespace PetShop
             this.panel1.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(781, 29);
+            this.panel1.Size = new System.Drawing.Size(683, 22);
             this.panel1.TabIndex = 60;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 671);
+            this.panel2.Location = new System.Drawing.Point(0, 503);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(781, 20);
+            this.panel2.Size = new System.Drawing.Size(683, 15);
             this.panel2.TabIndex = 61;
             // 
             // lblError
@@ -266,19 +261,45 @@ namespace PetShop
             this.lblError.AutoSize = true;
             this.lblError.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(34, 392);
+            this.lblError.Location = new System.Drawing.Point(30, 294);
             this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(59, 33);
+            this.lblError.Size = new System.Drawing.Size(49, 25);
             this.lblError.TabIndex = 62;
             this.lblError.Text = "Error";
             this.lblError.Visible = false;
             // 
+            // txtPeso
+            // 
+            this.txtPeso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.txtPeso.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtPeso.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPeso.ForeColor = System.Drawing.Color.White;
+            this.txtPeso.Location = new System.Drawing.Point(339, 380);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(100, 26);
+            this.txtPeso.TabIndex = 64;
+            this.txtPeso.Visible = false;
+            // 
+            // lblPeso
+            // 
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Font = new System.Drawing.Font("Bahnschrift Light Condensed", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPeso.ForeColor = System.Drawing.Color.White;
+            this.lblPeso.Location = new System.Drawing.Point(339, 352);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(78, 27);
+            this.lblPeso.TabIndex = 63;
+            this.lblPeso.Text = "Peso (KG)";
+            this.lblPeso.Visible = false;
+            // 
             // FormModificacionProducto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(781, 691);
+            this.ClientSize = new System.Drawing.Size(683, 518);
+            this.Controls.Add(this.txtPeso);
+            this.Controls.Add(this.lblPeso);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -298,7 +319,6 @@ namespace PetShop
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.lstInfo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormModificacionProducto";
             this.Opacity = 0.95D;
             this.Text = "FormModificacionProducto";
@@ -328,5 +348,7 @@ namespace PetShop
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.TextBox txtPeso;
+        private System.Windows.Forms.Label lblPeso;
     }
 }

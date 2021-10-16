@@ -28,9 +28,9 @@ namespace PetShop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if(double.TryParse(this.txtPrecio.Text, out double precio) && int.TryParse(this.txtCantidad.Text, out int cantidad))
+            if(double.TryParse(this.txtPrecio.Text, out double precio) && int.TryParse(this.txtCantidad.Text, out int cantidad) && double.TryParse(this.txtPeso.Text, out double peso))
             {
-                if (DatosSistema.AltaProducto(this.txtNombre.Text, this.txtDescripcion.Text, precio, this.cmbTipo.SelectedItem.ToString(), cantidad))
+                if (DatosSistema.AltaProducto(this.txtNombre.Text, this.txtDescripcion.Text, precio, this.cmbTipo.SelectedItem.ToString(), cantidad,peso))
                 {
                     this.Close();
                 }

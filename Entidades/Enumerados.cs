@@ -22,5 +22,10 @@ namespace Entidades
             Camas,
             Cuidado
         }
+        public enum ETipoEnvio
+        {
+            Moto = 80,
+            Miniflete = 120
+        }
     }
 }

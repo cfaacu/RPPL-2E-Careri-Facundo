@@ -18,8 +18,8 @@ namespace PetShop
         {
             foreach (Producto item in DatosSistema.listaProductos)
             {
-                lstInfo.Items.Add($"Id: {item.MostrarDatos()}");
-                lstInfo.Items.Add($"Nombre:{item.MostrarPrecioCant()}");
+                lstInfo.Items.Add($"{item.MostrarDatos()}");
+                lstInfo.Items.Add($"{item.MostrarPrecioCant()}");
                 lstInfo.Items.Add($"");
 
                 cmbTipo.DataSource = Enum.GetValues(typeof(Enumerados.ETipo));
@@ -51,6 +51,9 @@ namespace PetShop
                                 this.txtPrecio.Visible = true;
                                 this.txtId.ReadOnly = true;
                                 this.cmbTipo.Visible = true;
+                                this.lblPeso.Visible = true;
+                                this.txtPeso.Visible = true;
+                                this.txtPeso.Text = DatosSistema.listaProductos[i].Peso.ToString();
                                 this.txtDescripcion.Text = DatosSistema.listaProductos[i].Descripcion;
                                 this.txtNombre.Text = DatosSistema.listaProductos[i].Nombre;
                                 this.txtCantidad.Text = DatosSistema.listaProductos[i].Cantidad.ToString();
@@ -99,9 +102,9 @@ namespace PetShop
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            if (double.TryParse(this.txtPrecio.Text, out double precioNum) && int.TryParse(this.txtCantidad.Text, out int cantidadNum) && int.TryParse(this.txtId.Text, out int idNum))
+            if (double.TryParse(this.txtPrecio.Text, out double precioNum) && int.TryParse(this.txtCantidad.Text, out int cantidadNum) && int.TryParse(this.txtId.Text, out int idNum) && double.TryParse(this.txtPeso.Text, out double peso))
             {
-                if (DatosSistema.ModificarProducto(this.txtNombre.Text, this.txtDescripcion.Text, precioNum, this.cmbTipo.SelectedItem.ToString(), cantidadNum, idNum))
+                if (DatosSistema.ModificarProducto(this.txtNombre.Text, this.txtDescripcion.Text, precioNum, this.cmbTipo.SelectedItem.ToString(), cantidadNum, idNum,peso))
                 {
                     this.Close();
                 }
