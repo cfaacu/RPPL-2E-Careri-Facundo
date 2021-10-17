@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class ClienteSinDineroException: Exception
+    public class ClienteSinDineroException : Exception
     {
-        public ClienteSinDineroException():base()
+        public ClienteSinDineroException() : base()
         {
 
         }

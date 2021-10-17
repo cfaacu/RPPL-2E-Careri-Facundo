@@ -43,8 +43,9 @@ namespace Entidades
             double saldoMaximo = 0;
             foreach (Cliente item in DatosSistema.listaClientes)
             {
-                if(item.Saldo > saldoMaximo)
+                if(item.Saldo >= saldoMaximo)
                 {
+                    saldoMaximo = item.Saldo;
                     clienteAux = item;
                 }
             }

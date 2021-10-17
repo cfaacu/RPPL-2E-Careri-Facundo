@@ -8,12 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace PetShop
 {
     public partial class FormMenuPrincipal : Form
     {
-        private Form formActivo = null;
+       // private Form formActivo = null;
         FormAlta formAlta;
         FormModificacion formModificacion;
         FormAltaProducto formAltaProducto;
@@ -40,7 +41,31 @@ namespace PetShop
                 this.btnModificarAdministrador.Enabled = false;
                 this.btnModificarEmpleado.Enabled = false;
                 this.btnFacturacion.Enabled = false;
+                this.btnAltaCliente.Enabled = false;
+                this.btnBajaCliente.Enabled = false;
+                this.btnModificarCliente.Enabled = false;
             }
+
+            ImageList misImagenes = new ImageList();
+            misImagenes.ImageSize = new Size(256,256);
+            string[] archivos = Directory.GetFiles("imagenes");
+
+            try
+            {
+                foreach  (string item in archivos)
+                {
+                    misImagenes.Images.Add(Image.FromFile(item));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error al cargar las imagenes");
+            }
+
+            lstvPanelImg.LargeImageList = misImagenes;
+            lstvPanelImg.Items.Add(new ListViewItem("",0));
+            lstvPanelImg.Items.Add(new ListViewItem("",1));
+
         }
 
         private void btnAltaCliente_Click(object sender, EventArgs e)
@@ -231,6 +256,54 @@ namespace PetShop
             MostrarSubMenu(this.panelSubMenuEmpleados);
             MostrarSubMenu(this.panelSubMenuAdministrador);
             MostrarSubMenu(this.panelSubMenuProductos);
+        }
+
+        private void chkDarkMode_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkDarkMode.Checked == true)
+            {
+                DarkModeActivado();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void DarkModeActivado()
+        {
+            this.btnCliente.BackColor = Color.FromArgb(128,112,51);
+            this.btnEmpleados.BackColor = Color.FromArgb(128, 112, 51);
+            this.btnAdministradores.BackColor = Color.FromArgb(128, 112, 51);
+            this.btnProductos.BackColor = Color.FromArgb(128, 112, 51);
+            this.btnVenta.BackColor = Color.FromArgb(128, 112, 51);
+            this.btnFacturacion.BackColor = Color.FromArgb(128, 112, 51);
+            this.panelAux.BackColor = Color.FromArgb(128, 112, 51);
+
+            this.panelFormHijo.BackColor = Color.FromArgb(80, 80, 80);
+            this.lstvPanelImg.BackColor = Color.FromArgb(80, 80, 80);
+
+            this.panelLogo.BackColor = Color.FromArgb(100, 100, 100);
+            this.panelAux.BackColor = Color.FromArgb(100, 100, 100);
+
+            this.btnVerClientes.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnAltaCliente.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnBajaCliente.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnModificarCliente.BackColor = Color.FromArgb(56, 57, 59);
+            this.bntAgregarDinero.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnVerEmpleados.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnAltaEmpleado.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnBajaEmpleado.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnModificarEmpleado.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnVerAdministradoresk.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnAltaAdministrador.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnBajaAdministrador.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnModificarAdministrador.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnVerProductos.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnAltaProducto.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnBajaProducto.BackColor = Color.FromArgb(56, 57, 59);
+            this.btnModificarProducto.BackColor = Color.FromArgb(56, 57, 59);
+
         }
     }
 }

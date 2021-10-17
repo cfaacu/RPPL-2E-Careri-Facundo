@@ -115,7 +115,7 @@ namespace PetShop
                 this.Close();
                 MessageBox.Show("Venta generada con exito");
             }
-            catch(ClienteSinDineroException)
+            catch (ClienteSinDineroException)
             {
                 MessageBox.Show("Cliente sin dinero, transaccion invalida");
                 this.Close();

@@ -39,14 +39,23 @@ namespace Entidades
             Administrador admin2 = new Administrador("Roberto", "robertitopro", "Roberto", "Carlos", "20444444445");
             Cliente cli1 = new Cliente("Nicolas", "Rodriguez", "20555555556", 15000);
             Cliente cli2 = new Cliente("Bruno", "Carlos", "20666666667", 2500);
-            Producto pro1 = new(1,"Cama Gatuna", 1000, "Para gatos dormilones","Camas",10,5);
-            Producto pro2 = new(2,"Soga", 220, "Para gatos juguetones","Juguetes",20,0.5);
-            Producto pro3 = new(3,"Hueso", 200, "Para perros con dientes afilados", "Juguetes",25,0.2);
-            Producto pro4 = new(4,"Cama Perruna", 2000, "Para perros dormilones","Camas",12,10);
-            Producto pro5 = new(5,"Shampoo Gatuno",600, "Para gatos limpios", "Cuidado",8,1);
-            Producto pro6 = new(6,"Shampoo Perruno",600, "Para perros limpios", "Cuidado",6,1);
-            Producto pro7 = new(7,"Comida Perruna", 3000, "Para perros hambrientos", "Alimentos",200,35);
-            Producto pro8 = new(8,"Comida Gatuna", 2500, "Para gatos hambrientos", "Alimentos",210,39);
+            Producto pro1 = new Producto(1,"Cama Gatuna", 1000, "Para gatos dormilones","Camas",10,5);
+            Producto pro2 = new Producto(2,"Soga", 220, "Para gatos juguetones","Juguetes",20,0.5);
+            Producto pro3 = new Producto(3,"Hueso", 200, "Para perros con dientes afilados", "Juguetes",25,0.2);
+            Producto pro4 = new Producto(4,"Cama Perruna", 2000, "Para perros dormilones","Camas",12,10);
+            Producto pro5 = new Producto(5,"Shampoo Gatuno",600, "Para gatos limpios", "Cuidado",8,1);
+            Producto pro6 = new Producto(6,"Shampoo Perruno",600, "Para perros limpios", "Cuidado",6,1);
+            Producto pro7 = new Producto(7,"Comida Perruna", 3000, "Para perros hambrientos", "Alimentos",200,35);
+            Producto pro8 = new Producto(8,"Comida Gatuna", 2500, "Para gatos hambrientos", "Alimentos",210,39);
+            Stack<Producto> carrito1 = new Stack<Producto>();
+            Stack<Producto> carrito2 = new Stack<Producto>();
+            carrito1.Push(pro1);
+            carrito1.Push(pro2);
+            carrito1.Push(pro3);
+            carrito2.Push(pro3);
+            carrito2.Push(pro8);
+            Venta venta1 = new Venta(carrito1, 1440, cli1);
+            Venta venta2 = new Venta(carrito1, 2700, cli2);
             listaProductos.Add(pro1);
             listaProductos.Add(pro2);
             listaProductos.Add(pro3);
@@ -61,6 +70,8 @@ namespace Entidades
             listaEmpleados.Add(admin2);
             listaClientes.Add(cli1);
             listaClientes.Add(cli2);
+            PilaVentas.Push(venta1);
+            PilaVentas.Push(venta2);
         }
         /// <summary>
         /// Logica del logueo del usuario

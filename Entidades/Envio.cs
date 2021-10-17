@@ -30,8 +30,8 @@ namespace Entidades
             }
             set
             {
-                if(value > 0)
-                this.precio = value;
+                if (value > 0)
+                    this.precio = value;
             }
         }
 
@@ -63,7 +63,7 @@ namespace Entidades
         public double CalcularPrecio(Venta venta)
         {
             double precioEnvio = 200;
-            if(Distancia >= 100 && Distancia <= 199)
+            if (Distancia >= 100 && Distancia <= 199)
             {
                 precioEnvio = 300;
             }
@@ -71,12 +71,12 @@ namespace Entidades
             {
                 precioEnvio = 350;
             }
-            else if(Distancia > 250)
+            else if (Distancia > 250)
             {
                 precioEnvio = 380;
             }
 
-            if(venta.Carrito.Count() >= 10 || Enumerados.ETipoEnvio.Miniflete == CalcularTipoTransporte(venta))
+            if (venta.Carrito.Count() >= 10 || Enumerados.ETipoEnvio.Miniflete == CalcularTipoTransporte(venta))
             {
                 precioEnvio = precioEnvio + 150;
                 return precioEnvio;
@@ -95,7 +95,7 @@ namespace Entidades
                 pesoTotal = pesoTotal + item.Peso;
             }
 
-            if(pesoTotal >= 10)
+            if (pesoTotal >= 10)
             {
                 return Enumerados.ETipoEnvio.Miniflete;
             }
