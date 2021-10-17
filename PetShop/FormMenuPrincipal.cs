@@ -266,7 +266,10 @@ namespace PetShop
             }
             else
             {
-
+                if(chkDarkMode.Checked == false)
+                {
+                    LightModeActivado();
+                }
             }
         }
 
@@ -284,7 +287,8 @@ namespace PetShop
             this.lstvPanelImg.BackColor = Color.FromArgb(80, 80, 80);
 
             this.panelLogo.BackColor = Color.FromArgb(100, 100, 100);
-            this.panelAux.BackColor = Color.FromArgb(100, 100, 100);
+
+            this.panelMenuLateral.BackColor = Color.FromArgb(100, 100, 100);
 
             this.btnVerClientes.BackColor = Color.FromArgb(56, 57, 59);
             this.btnAltaCliente.BackColor = Color.FromArgb(56, 57, 59);
@@ -303,6 +307,48 @@ namespace PetShop
             this.btnAltaProducto.BackColor = Color.FromArgb(56, 57, 59);
             this.btnBajaProducto.BackColor = Color.FromArgb(56, 57, 59);
             this.btnModificarProducto.BackColor = Color.FromArgb(56, 57, 59);
+            this.panelSubMenuAdministrador.BackColor = Color.FromArgb(56, 57, 59);
+            this.panelSubMenuClientes.BackColor = Color.FromArgb(56, 57, 59);
+            this.panelSubMenuEmpleados.BackColor = Color.FromArgb(56, 57, 59);
+            this.panelSubMenuProductos.BackColor = Color.FromArgb(56, 57, 59);
+        }
+        private void LightModeActivado()
+        {
+            this.btnCliente.BackColor = Color.FromArgb(255,223,101);
+            this.btnEmpleados.BackColor = Color.FromArgb(255, 223, 101);
+            this.btnAdministradores.BackColor = Color.FromArgb(255, 223, 101);
+            this.btnProductos.BackColor = Color.FromArgb(255, 223, 101);
+            this.btnVenta.BackColor = Color.FromArgb(255, 223, 101);
+            this.btnFacturacion.BackColor = Color.FromArgb(255, 223, 101);
+            this.panelAux.BackColor = Color.FromArgb(255, 223, 101);
+
+            this.panelFormHijo.BackColor = Color.FromArgb(203,207,209);
+            this.lstvPanelImg.BackColor = Color.FromArgb(203, 207, 209);
+
+            this.panelLogo.BackColor = Color.FromArgb(176,182,186);
+            this.panelMenuLateral.BackColor = Color.FromArgb(176,182,186);
+
+            this.btnVerClientes.BackColor = Color.FromArgb(127,127,127);
+            this.btnAltaCliente.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnBajaCliente.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnModificarCliente.BackColor = Color.FromArgb(127, 127, 127);
+            this.bntAgregarDinero.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnVerEmpleados.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnAltaEmpleado.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnBajaEmpleado.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnModificarEmpleado.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnVerAdministradoresk.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnAltaAdministrador.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnBajaAdministrador.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnModificarAdministrador.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnVerProductos.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnAltaProducto.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnBajaProducto.BackColor = Color.FromArgb(127, 127, 127);
+            this.btnModificarProducto.BackColor = Color.FromArgb(127, 127, 127);
+            this.panelSubMenuAdministrador.BackColor = Color.FromArgb(127, 127, 127);
+            this.panelSubMenuClientes.BackColor = Color.FromArgb(127, 127, 127);
+            this.panelSubMenuEmpleados.BackColor = Color.FromArgb(127, 127, 127);
+            this.panelSubMenuProductos.BackColor = Color.FromArgb(127, 127, 127);
 
         }
     }
