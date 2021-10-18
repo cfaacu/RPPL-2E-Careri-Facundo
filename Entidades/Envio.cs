@@ -55,11 +55,20 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Genera un numero random entre 1 y 300
+        /// </summary>
+        /// <returns>Devuelve el numero random generado</returns>
         private double GenerarNumeroRandom()
         {
             Random r = new Random();
             return r.Next(1, 300);
         }
+        /// <summary>
+        /// Calcula el precio del envio segun la distancia y el tipo de envio
+        /// </summary>
+        /// <param name="venta"></param>
+        /// <returns>Devuelve el precio del envio</returns>
         public double CalcularPrecio(Venta venta)
         {
             double precioEnvio = 200;
@@ -87,6 +96,11 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Calcula el tipo de transporte segun el peso y la cantidad de productos
+        /// </summary>
+        /// <param name="venta"></param>
+        /// <returns>Enumerado con el tipo de transporte</returns>
         private Enumerados.ETipoEnvio CalcularTipoTransporte(Venta venta)
         {
             double pesoTotal = 0;

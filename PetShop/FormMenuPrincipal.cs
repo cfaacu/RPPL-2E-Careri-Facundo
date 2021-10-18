@@ -33,7 +33,6 @@ namespace PetShop
         {
             if(empleado.GetType() == typeof(Empleado))
             {
-                this.panelFormHijo.BackColor = Color.Black;
                 this.btnAltaAdministrador.Enabled = false;
                 this.btnAltaEmpleado.Enabled = false;
                 this.btnBajaAdministrador.Enabled = false;
@@ -273,6 +272,9 @@ namespace PetShop
             }
         }
 
+        /// <summary>
+        /// Setea los colores necesarios para el DarkMode
+        /// </summary>
         private void DarkModeActivado()
         {
             this.btnCliente.BackColor = Color.FromArgb(128,112,51);
@@ -312,6 +314,9 @@ namespace PetShop
             this.panelSubMenuEmpleados.BackColor = Color.FromArgb(56, 57, 59);
             this.panelSubMenuProductos.BackColor = Color.FromArgb(56, 57, 59);
         }
+        /// <summary>
+        /// Setea los colores necesarios para el LightMode
+        /// </summary>
         private void LightModeActivado()
         {
             this.btnCliente.BackColor = Color.FromArgb(255,223,101);
